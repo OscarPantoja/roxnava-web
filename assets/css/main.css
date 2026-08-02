@@ -1,0 +1,472 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #090909;
+}
+
+/* ==========================================================
+   HERO
+========================================================== */
+
+.hero {
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+
+    width: 100%;
+    height: 100svh;
+
+    overflow: hidden;
+
+    background-color: #090909;
+    --hero-position: 15%;
+    --overlay-start: 58%;
+}
+
+
+/* ==========================================================
+   IMAGEN
+========================================================== */
+
+.hero__picture {
+    position: absolute;
+
+    top: 0;
+    right: 0;
+    bottom: -2px;
+    left: 0;
+
+    overflow: hidden;
+}
+
+.hero__image {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center var(--hero-position);
+
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+
+/* ==========================================================
+   OVERLAY
+========================================================== */
+
+.hero__overlay {
+    position: absolute;
+    inset: 0;
+
+    z-index: 2;
+
+    pointer-events: none;
+
+    background: linear-gradient(
+        to bottom,
+        rgba(9, 9, 9, 0) 0%,
+        rgba(9, 9, 9, .05) 35%,
+        rgba(9, 9, 9, .18) 48%,
+        rgba(9, 9, 9, .45) 60%,
+        rgba(9, 9, 9, .72) 74%,
+        rgba(9, 9, 9, .92) 88%,
+        #090909 100%
+    );
+}
+
+
+/* ==========================================================
+   CONTENIDO
+========================================================== */
+
+.hero__content {
+    position: absolute;
+
+    left: 50%;
+    bottom: 4rem;
+
+    transform: translateX(-50%);
+
+    z-index: 3;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: min(100% - 3rem, 28rem);
+
+    text-align: center;
+}
+
+
+/* ==========================================================
+   TITULO
+========================================================== */
+
+.hero__title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin: 0;
+
+    font-family: "Tenor Sans", serif;
+    font-weight: 400;
+
+    font-size: clamp(4.25rem, 12vw, 5.75rem);
+    line-height: .88;
+
+    letter-spacing: .16em;
+    text-transform: uppercase;
+
+    color: #F5F5F5;
+}
+
+.hero__title span {
+    display: block;
+}
+
+.hero__title span:last-child {
+    margin-left: .08em;
+}
+
+
+/* ==========================================================
+   DIVIDER
+========================================================== */
+
+.hero__divider {
+    position: relative;
+
+    width: 70%;
+    height: 2px;
+
+    margin: 2rem 0;
+
+    overflow: hidden;
+}
+
+.hero__divider::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 79, 163, .15) 20%,
+        #ff4fa3 50%,
+        rgba(255, 79, 163, .15) 80%,
+        transparent 100%
+    );
+}
+
+.hero__divider::after {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 2.5rem;
+    height: .2rem;
+
+    transform: translate(-50%, -50%);
+
+    border-radius: 999px;
+
+    background: #ff4fa3;
+
+    filter: blur(6px);
+
+    opacity: .75;
+}
+
+.hero__button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    min-width: 18rem;
+    min-height: 3.75rem;
+
+    padding: 0 2rem;
+
+    border: 1px solid #FF4FA3;
+    border-radius: 999px;
+
+    background-color: rgba(9, 9, 9, .35);
+    backdrop-filter: blur(10px);
+
+    color: #F5F5F5;
+
+    font-family: "Inter", sans-serif;
+    font-size: 1.0625rem;
+    font-weight: 600;
+    line-height: 1;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition:
+        background-color .25s ease,
+        border-color .25s ease,
+        color .25s ease,
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+.hero__button:hover {
+    background-color: rgba(255, 79, 163, .12);
+
+    box-shadow:
+        0 0 1.25rem rgba(255, 79, 163, .18);
+
+    transform: translateY(-2px);
+}
+
+.hero__button:active {
+    transform: translateY(0);
+}
+
+.hero__button:focus-visible {
+    outline: 2px solid #FF4FA3;
+    outline-offset: 4px;
+}
+
+.hero__description {
+    margin: 0 0 2.5rem;
+
+    max-width: 20rem;
+
+    color: rgba(245, 245, 245, .78);
+
+    font-family: "Inter", sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.75;
+    letter-spacing: .02em;
+
+    text-align: center;
+    text-wrap: balance;
+}
+
+.hero__scroll {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 44px;
+    height: 44px;
+
+    color: #FF4FA3;
+}
+
+.hero__chevron {
+    width: 12px;
+    height: 12px;
+
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+
+    transform: rotate(45deg);
+
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: rotate(45deg) translate(0, 0);
+    }
+
+    50% {
+        transform: rotate(45deg) translate(4px, 4px);
+    }
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+
+    padding: 2rem 1.5rem 3rem;
+
+    background-color: #090909;
+}
+
+.social-links__container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    width: min(100%, 28rem);
+}
+
+.social-card {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+
+    width: 100%;
+    min-height: 5.75rem;
+
+    padding: 1.25rem 1.5rem;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 1.5rem;
+
+    background-color: #111111;
+
+    text-decoration: none;
+    color: inherit;
+
+    transition:
+        transform .25s ease,
+        border-color .25s ease,
+        background-color .25s ease,
+        box-shadow .25s ease;
+}
+
+.social-card:hover {
+    transform: translateY(-2px);
+
+    border-color: rgba(255,79,163,.35);
+
+    box-shadow: 0 12px 32px rgba(0,0,0,.35);
+}
+
+.social-card__icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex-shrink: 0;
+
+    width: 3rem;
+    height: 3rem;
+}
+
+.social-card__icon-image {
+    display: block;
+
+    width: 2rem;
+    height: 2rem;
+}
+
+.social-card__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    flex: 1;
+    min-width: 0;
+}
+
+.social-card__title {
+    margin: 0 0 .25rem;
+
+    color: #F5F5F5;
+
+    font-family: "Inter", sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.social-card__description {
+    margin: 0;
+
+    color: rgba(245,245,245,.65);
+
+    font-family: "Inter", sans-serif;
+    font-size: .875rem;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+.social-card__arrow {
+    flex-shrink: 0;
+
+    width: 0.85rem;
+    height: 0.85rem;
+
+    margin-left: auto;
+
+    border-top: 2px solid rgba(245, 245, 245, 0.45);
+    border-right: 2px solid rgba(245, 245, 245, 0.45);
+
+    transform: rotate(45deg);
+
+    transition:
+        transform 0.25s ease,
+        border-top-color 0.25s ease,
+        border-right-color 0.25s ease;
+}
+
+.social-card:hover .social-card__arrow {
+    border-top-color: #FF4FA3;
+    border-right-color: #FF4FA3;
+
+    transform: rotate(45deg) translate(2px, -2px);
+}
+
+/* ==========================================================
+   FOOTER
+========================================================== */
+
+.footer {
+    padding: 4rem 1.5rem 2.5rem;
+
+    background: #090909;
+}
+
+.footer__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: .75rem;
+
+    text-align: center;
+}
+
+.footer__brand {
+    margin: 0;
+
+    font-family: "Tenor Sans", serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+
+    color: #F5F5F5;
+}
+
+.footer__text {
+    margin: 0;
+
+    font-size: .95rem;
+    line-height: 1.6;
+
+    color: #B3B3B3;
+}
+
+.footer__copyright {
+    margin-top: .5rem;
+
+    font-size: .8rem;
+    letter-spacing: .04em;
+
+    color: #777777;
+}
