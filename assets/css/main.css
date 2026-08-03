@@ -432,7 +432,7 @@ body {
 ========================================================== */
 
 .footer {
-    padding: 4rem 1.5rem 2.5rem;
+    padding: 2.5rem 1.5rem 2.5rem;
 
     background: #090909;
 }
@@ -445,18 +445,6 @@ body {
     gap: .75rem;
 
     text-align: center;
-}
-
-.footer__brand {
-    margin: 0;
-
-    font-family: "Tenor Sans", serif;
-    font-size: 1.5rem;
-    font-weight: 400;
-    letter-spacing: .18em;
-    text-transform: uppercase;
-
-    color: #F5F5F5;
 }
 
 .footer__text {
@@ -474,5 +462,19 @@ body {
     font-size: .8rem;
     letter-spacing: .04em;
 
-    color: #777777;
+    color: #A8A8A8;
+}
+
+.footer__logo {
+    display: block;
+
+    width: 7.5rem;
+    height: 7.5rem;
+
+    margin-bottom: 1rem;
+
+    object-fit: contain;
+
+    user-select: none;
+    -webkit-user-drag: none;
 }
